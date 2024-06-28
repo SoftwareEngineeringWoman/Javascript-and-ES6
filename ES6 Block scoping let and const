@@ -1,0 +1,23 @@
+let limit = 100;     
+console.log(limit);  // 100
+
+const let limit = 100;     
+{ let limit=10;                     //{} local scope
+  console.log('backstage', limit);  //{} code outside this is gloab that ignores this local entry
+}
+console.log('overall', limit);  // backstage 10, overall 200
+
+//if this is done in var, overall becomes 10
+//const works same as let
+
+
+fnction hello(){
+  let message ="Hello";
+  console.log(message);
+}
+fnction greeting(){
+  let message ="wassup";
+  console.log(message);
+}
+hello();   //Hello
+greeting(); //wassup   // as {} makes it local so no interfearence
