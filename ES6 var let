@@ -1,0 +1,17 @@
+var limit =100; // javascript
+
+let limit=100;  //es6
+limit+=10;// error
+
+//block scoping: makes own coding block
+print(){console.log("ES6 rocks")}; 
+// we can declare any variable and no other function can access it
+// local scope
+
+template literals
+//strings with embedded expresions
+//in {} TL can act as a placeholder for variables indicated by $
+
+let insert='world';
+'Hello, ${insert}...'
+// benefits, easy to update strings dynamically by concetating multiple varialbes 
