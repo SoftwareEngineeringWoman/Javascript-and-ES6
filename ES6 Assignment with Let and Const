@@ -1,0 +1,20 @@
+let limit = 100;     ///let instead of var
+console.log(limit);  //100
+
+let limit = 100;     
+limit=200;
+console.log(limit);  // 200
+
+//if no resignment then use const
+const let limit = 100;     
+limit=200;
+console.log(limit);  // error
+
+//we can manipulate data
+//push pop
+const emails = ['sam@va.gov','tam@va.gov','mice@va.gov'];     
+emails.push('cam@va.gov');
+console.log(emails);  // prints all
+
+
+
