@@ -1,0 +1,15 @@
+var x=1;
+switch(x){
+case 1;
+  console.log("is one");
+  break;
+case 2;
+  console.log("is two");
+  break;
+case 3;
+  console.log("is three");
+  break;
+default;
+  console.log("is" + x);   // prints x if nothing works as a default
+  break;
+}
