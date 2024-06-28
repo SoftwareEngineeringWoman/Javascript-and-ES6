@@ -1,0 +1,13 @@
+var points=[25, 6, 7]
+points.push(8);
+console.log(points);  // [25, 6, 7, 8]
+
+var points=[25, 6, 7]
+var last=points.pop;
+console.log(points, last);  // [25, 6] 7
+
+//accessing the array
+var points=[25, 6, 7]
+var first=points[0];
+console.log(first);  // 25
+console.log(points.length);  // 3
