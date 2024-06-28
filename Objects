@@ -1,0 +1,12 @@
+var dog ={
+
+name:'Buddy',
+breed: 'Labra',
+weight:60,
+bark: function(){
+console.log("woof");
+}
+};
+
+dog.bark();    // woof
+console.log(dog.breed);  // Labra
