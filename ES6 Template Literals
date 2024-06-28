@@ -1,0 +1,12 @@
+let a = `good`;
+console.log(a);  // good
+
+let a = `good`;
+let greeting = `${a} morning`;    // better than concat in JS // a+""+"morning"
+console.log(greeting);  // good morning
+
+
+let b=`bithday`;
+let c= `happy ${b}`;
+console.log(c);  // happy birthday
+
