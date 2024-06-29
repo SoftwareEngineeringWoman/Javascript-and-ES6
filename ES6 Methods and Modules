@@ -1,0 +1,41 @@
+//arrow functions: anonymous, declared within operator rather than function keyword
+// js= function() {}  
+// in ES6 ()=>{}
+
+//helper methods use arrow function
+// like map method: creats new arrays by calling a func on indivisual elements in org array
+// like filter method: creats new arrays based on an org array and a certain test on each of its element
+
+//modules
+// in js, split code into unique files based on relevant data
+// in ES6, handled via export and import keywords by sending and recieving data from other modules.
+
+
+// arrow functions
+//in js
+function cheer(){
+console.log("Woohoo"); // not anonymous as it is a func declaration
+}
+cheer();
+//in ES6
+var cheer= function(){   // this is func expression not declaration
+console.log("Woohoo");  // anonymous as func is not declared
+}
+cheer();
+
+// settimeout
+settimeout(function(){  //anonymous
+console.log("Woohoo");
+}, 3000);
+
+// convert into es6 arrow function
+settimeout(()=> {  //anonymous
+console.log("Woohoo");
+}, 3000);
+
+//now how to attach variable names to arrow function that we want to call
+
+let cheet =() =>{
+consol.log("wooho");
+}
+cheer();
