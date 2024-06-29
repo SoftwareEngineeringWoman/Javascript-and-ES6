@@ -1,0 +1,5 @@
+//string manipulation and number checking
+//string.repeat() returns a new string of concat copies
+// searching with startsWith, endsWith, includes etc
+// number checking for type and safetly
+
