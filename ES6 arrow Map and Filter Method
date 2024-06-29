@@ -1,0 +1,33 @@
+//helper method MAP
+
+let values=[20,30,40];
+let double = (n) =>{  // for single element in array
+  return n*2;
+}
+let doubled= values.map(double);  // to do it for whole array
+console.log(doubled);
+
+// in a short way
+let values=[20,30,40];
+let doubled = values.map((n) =>{  
+  return n*2;
+});
+console.log(doubled);
+
+//shorter: arrow func can return a data without a coding block
+let values=[20,30,40];
+let doubled = values.map((n) => n*2);
+console.log(doubled);
+
+
+//helper method FILTER
+let points=[10, 11, 12, 20,30,40,50];   //only want the ones that exceed 15
+let highScores = points.filter((n) => {
+return n>15;
+})
+console.log(highScores);
+
+//shorter
+let points=[10, 11, 12, 20,30,40,50];   
+let highScores = points.filter((n) => n>15);
+console.log(highScores);
