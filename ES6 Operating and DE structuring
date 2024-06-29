@@ -1,0 +1,50 @@
+ //ES6 have ways to manupulate arrays and objects
+
+//spread operator: manupulate arrays and objects uses: combine and concat array
+let a =[20, 30, 40]
+//let b =[10, 50]
+let b=[10, ...a, 50]     // spread operator(....a)
+console.log(b);  //[10, 20, 30, 40, 50]
+
+// spread in string
+let a =['sara', 'rata','matt'];
+let b =['tom', 'bob','carl', ...a];    
+console.log(b);  //['tom', 'bob','carl','sara', 'rata','matt']
+
+
+//rest parameters
+function collect(...a){
+console.log(a);
+}
+collect(1,2,3,4,5);  // [1,2,3,4,5]
+
+//destructuring
+//in js
+let z=[4,5,6];
+let four =z[0];
+let five =z[1];
+console.log(four, five);  //4 5
+//in ES6
+let z=[4,5,6];
+let [four, five]=z;
+console.log(four, five);  //4 5  // order of values matches the array
+
+
+let animals= ["evie","pug","butterfly"];
+let [cat, dog]= animals;
+console.log(cat, dog);  // evie pug
+
+//destruction assignment on object  in js
+let king={name:'Mufasa' kids:1};
+let name= king.name;
+let kids= king.kids;
+console.log(name, kids);  // Mufasa 1
+//in ES6
+let king= {name: 'Mufasa', Kids:1}
+let{name, kids}= king;
+console.log(name, kids);
+
+
+
+
+
