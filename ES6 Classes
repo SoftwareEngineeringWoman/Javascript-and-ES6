@@ -1,0 +1,128 @@
+// classes in JS allows to build modules of objects based on realworld objects
+// this is inheretence between classes // finds similarity in objects
+//class keyword defines a class 
+// we give class assigned data using constructor function
+// constructor creates and initializes an object for the class based on unique info we give
+// extends keyword creates child classes
+
+class Animal {
+  constructor(name, height){
+    this.name= name;
+    this.height= height;
+  }
+  hellow(){                              //special methods to class called Hello
+    console.log('Hi! I am ${this.name} from the Animal Kingdom!')
+}
+
+
+let king = new Animal("Mufasa", 4.5);
+// in cases without special method we use console.log(king) // Animal {name: "Mufasa" , height= 4.5}
+// to access hello, use king.hello instead of console
+king.hello();   // Hi! I am Mufasa from the Animal Kingdom!
+
+
+---------------------------------------
+//Inheritence by implimenting extended class
+
+class Animal {
+  constructor(name, height){
+    this.name= name;
+    this.height= height;
+  }
+  hellow(){                             
+    console.log('Hi! I am ${this.name} from the Animal Kingdom!')
+}
+}
+
+class Lion extends Animal{
+}
+
+let son= new Lion("Simba", 2);
+console.log(son);  //Lion {name: "Simba", height=2}
+
+//more specific to Lion class
+//in child classes, before we can modify this. to modify class data,  super keyword to akwlg parents contructor
+
+class Animal {
+  constructor(name, height){
+    this.name= name;
+    this.height= height;
+  }
+  hellow(){                             
+    console.log('Hi! I am ${this.name} from the Animal Kingdom!')
+}
+}
+
+class Lion extends Animal{
+  constructor(name, height, color){
+    super(name, height);
+    this.color= color;
+}
+}
+
+let son= new Lion("Simba", 2, "golden");
+console.log(son);  //Lion {name: "Simba", height=2, color="golden"}
+
+---------------------------------------
+// to use hello method from lion and to use a different message entirely
+// overide method by redeclaring them
+
+class Animal {
+  constructor(name, height){
+    this.name= name;
+    this.height= height;
+  }
+  hellow(){                             
+    console.log('Hi! I am ${this.name} from the Animal Kingdom!')
+}
+}
+
+class Lion extends Animal{
+  constructor(name, height, color){
+    super(name, height);
+    this.color= color;
+}
+hello(){
+  console.log('Hi! I am ${this.name} from Seattle')
+}
+}
+
+let son= new Lion("Simba", 2, "golden");
+son.hellow();  //Hi! I am Simba from Seattle
+
+// multiple classes usually exist in separate module
+// lets extract this base Animal class to a separate animal.js
+// in animal.js
+
+import Animal from './Animal';
+class Lion extends Animal{
+  constructor(name, height, color){
+    super(name, height);
+    this.color= color;
+}
+hello(){
+  console.log('Hi! I am ${this.name} from Seattle')
+}
+}
+
+let son= new Lion("Simba", 2, "golden");
+son.hellow(); 
+
+
+---------------------------------------------
+//Static methods in classes
+// we can access these methods without declaring a instance of class
+
+class Calculator{
+  static multiple(a,b){
+    return a*b;
+  }
+
+  static ad(a,b){
+    return a+b;
+}
+}
+let a = Calculator.multiply(5,7);
+consol.log(a);
+
+// calculator holds multiple methods
