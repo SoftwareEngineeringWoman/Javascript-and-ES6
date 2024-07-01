@@ -1,0 +1,55 @@
+// Modules in js are reusable pieces of code.
+//exist independently in own separate files
+//export keyword so that other files can use this
+//import keyword so that current file can access other modules
+//this file is daved in fellowship.js instead of index.js
+// in Index.js type the following
+//import{fellowship} from './fellowship'; console.log(fellowship);
+// this gives the result of fellowship.js // ['Frodo','Sam','Gan']
+
+//in fellowship.js
+const fellowship=['Frodo','Sam','Gan'];
+export{fellowship};
+------------------------------------------------
+example 2
+//in fellowship.js
+const fellowship=['Frodo','Sam','Gan'];
+const total = fellowship.length;
+export{fellowship, total};
+
+//in Index.js
+import{fellowship, total} from './fellowship'; 
+console.log(fellowship, total);
+
+----------------------------------------------
+
+// default keyword: a fallback for modules when exporting multiple
+// new file math.js
+const add=(a,b) => {
+  return a+b;
+}
+const multiply=(a,b) => {
+  return a*b;
+}
+export {add, multiply}
+
+
+//in Index.js
+import{add, multiply} from './math'; 
+console.log(add(5,10)); // 15
+
+// now for user to only default to multiply, export default
+//in math.js
+const add=(a,b) => {
+  return a+b;
+}
+const multiply=(a,b) => {
+  return a*b;
+}
+export {add, multiply}
+export default multiply;
+
+
+// now in import.js
+import multiply from './math'; 
+console.log(multiply(5,10)); // 50
