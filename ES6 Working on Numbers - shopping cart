@@ -1,0 +1,21 @@
+//in js to check if input was finite etc
+const addToCart = (item, number) =>{  //code method to prevent user to input anything wrong
+   return Number.isFinite(number);   // check if it is only finite as per assumption
+}
+console.log(addToCart('shirt', 5));  // results True as it is finite
+
+
+const addToCart = (item, number) =>{  
+   return Number.isFinite(number);   
+}
+console.log(addToCart('shirt', Infinity)); // false
+
+// In ES6 
+// check type or finite by checking if INT is in a safe range
+// technically 2 to power 54 is is not processed in JS by it results in true
+// we solve this in ES6 by helper method isSafeInteger, which gives false , and our program will not break
+
+const addToCart = (item, number) =>{  
+   return Number.isSafeInteger(number);   
+}
+console.log(addToCart('shirt', Math.pow(2,54)));  // false
