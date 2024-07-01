@@ -1,0 +1,64 @@
+// OOP : obects or classes hold relavant data taht interact with each other. // c java and ruby support OOP
+// js supports prototypal inheritance model.
+//classes are extraction of prototypes
+//ES6 creats prototypes quickly
+// prototype is a charateristic that all objects of js have. char is its parent or obj that it inherited the properties from.
+// this is called prototype chain
+// all object like ds- Arrays, Dates etc inherets from a prototype above them 
+
+//to extract js object prototype we use an obj constructor function in js
+
+function Wizard(name, house, pet){
+this.name=name;
+this.house=house;
+this.pet=pet;
+}
+let harry = new Wizard("HP", "Gryffindor","Owl")
+console.log(harry); // Wizard {name:"HP" , house:"Gryffindor", pet:"Owl"}
+
+-------------
+
+function Wizard(name, house, pet){
+this.name=name;
+this.house=house;
+this.pet=pet;
+this.greet=() =>I am ${this.name} from ${this.house}'
+}
+let harry = new Wizard("HP", "Gryffindor","Owl")
+console.log(harry.greet()); // I am HP from Gryffindor
+
+--------------
+// change pet without changing org constructor
+function Wizard(name, house, pet){
+this.name=name;
+this.house=house;
+this.pet=pet;
+this.greet=() =>I am ${this.name} from ${this.house}'
+}
+Wizard.prototype.pet_name;
+let harry = new Wizard("HP", "Gryffindor","Owl")
+harry.pet_name="Hedwig";
+console.log(harry.greet()); //  Wizard greet:() {name:"HP" , house:"Gryffindor", pet:"Owl" pet_name:"Hedwig"}
+
+---------------
+//=> functions dont create thier own this. object in function
+// => func are not always the best option
+// to add a methods in prototype, prototype.info will error eg
+//Wizard.prototype.info =() => {
+// return 'I have ${this.pet}'};// error
+
+// to prototype keyword to define a method, don't use =>, use normal func dec
+
+function Wizard(name, house, pet){
+this.name=name;
+this.house=house;
+this.pet=pet;
+this.greet=() =>I am ${this.name} from ${this.house}'
+}
+Wizard.prototype.pet_name;
+Wizard.prototype.info =function() {
+return 'I have ${this.pet}'};
+
+let harry = new Wizard("HP", "Gryffindor","Owl")
+harry.pet_name="Hedwig";
+console.log(harry.info());// I have Owl
