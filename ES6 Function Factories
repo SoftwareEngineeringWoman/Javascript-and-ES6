@@ -1,0 +1,34 @@
+// closures enable us to creat Function Factories
+// Function Factories take arguments and return new functions
+//eg: add suffix to a string
+
+const assSuffix =(x) => {
+  const concat = (y)  => {
+    return y+x;
+  }
+  return concat;
+}
+let add_ness = addSuffix("ness");  // we created a function for addness in FF
+console.log(add-ness);
+let h = add_ness("happi"); // use addness and argue happi
+console.log(h); // happiness
+
+----------------------------------
+
+const product =(x) => {
+return y=> {
+return y*x;
+}
+}
+let mult5 = product(5);
+let double = product(2);
+console.log(double(9)); // 18
+
+-----------------------------------------
+//shorten the inner function
+
+const product = x => y => y*x;
+
+let mult5 = product(5);
+let double = product(2);
+console.log(double(9)); // 18
