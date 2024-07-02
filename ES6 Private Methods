@@ -1,0 +1,47 @@
+//Private Methods enable data encapsulation
+//Private Methods have restricted access to other method within the same class
+// emulate private methods with the use of closures
+
+//eg: fuction keeps track of budget with private data
+
+const budget = () => {
+  let balance = 0;
+  let changeBal = (val) = >{   // private method
+  return balance + = val;
+  }
+const deposit20 = () => changeBal(20); //closure
+// to check our balance: add check fucntion closure to our deposit 
+const check =() => balance;
+
+return  {           // returning an object that has deposite20 key mapping to deposit20 method
+  deposite20: deposite20
+  check : check
+}
+}
+let wallet = budget();
+console.log(wallet);
+wallet.deposite20();
+console.log(wallet.check());  // 20 // wallet is a method that has access to budget
+// therefore, wallet.check() works and wallet.balance does not work
+---------------------------------------------------
+
+
+const budget = () => {
+  let balance = 0;
+  let changeBal = (val) = >{   // private method
+  return balance + = val;
+  }
+const deposit20 = () => changeBal(20); 
+const withdraw20 = () => changeBal(20); 
+
+const check =() => balance;
+
+return  { deposite20, withdraw20, check     // in ES6 if key and value are same name, just write deposite20
+}
+}
+let wallet = budget();
+wallet.deposite20();   //+20
+wallet.withdraw20();   // -20
+wallet.deposite20();   // +20
+wallet.deposite20();   //+20
+console.log(wallet.check());  // 40
