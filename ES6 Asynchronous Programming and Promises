@@ -1,0 +1,36 @@
+// sync programs run in seq
+// async programs diverts blocking to event handlers
+
+//UI and browsers ar async by nature
+//async underlines db, server and api interactions
+// in ES6, promises handle async funcs
+// Pending, Fulfilled, Rejected
+
+// basic syntax of promise
+
+let p = new Promise ((resolve, reject) => {
+resolve ('Resolved promise data');
+})
+p.then(response => console.log(response));  // Resolved promise data
+
+// to vie rejected data
+
+let p = new Promise ((resolve, reject) => {
+reject ('Rejected promise data');
+})
+p.then(response => console.log(response))
+.catch(error => console.log(error));  // .catch to consume rejected data/ print
+
+----------------------------------
+// as apis take time to read data and return, lets see a similar case
+
+let p = new Promise ((resolve, reject) => {
+setTimeout(() => resolve('Resolved promise data'), 3000);
+})   // print after 3 secs
+p.then(response => console.log(response))
+.catch(error => console.log(error));
+
+// what about console log in a 3 secs time out 
+//console will print 1st and then promise will print
+
+
