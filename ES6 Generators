@@ -1,0 +1,112 @@
+// when we run a func we expect it to complete before running the prohram, so other expresions and statements can only happen once func is fifnished.
+// generator function can PAUSE(YEILD) and Resume(next) later
+
+function* letterMaker() {
+  yeild 'a';
+  yeild 'b';
+  yeild 'c';
+}
+let letterGen = letterMaker();
+console.log(letterGen.next().value);  //a
+
+
+----------------------------------------------------------
+//generates when someone walks into the door
+
+function* countMaker(){
+  let count=0;
+  while (count<3) {
+    yield count +=1;
+  }
+}
+let countGen = countMaker();
+console.log(countGen.next().value); //1
+console.log(countGen.next().value);
+console.log(countGen.next().value);  //3
+console.log(countGen.next().value);  // undefined
+    
+--------------------------------------------------------------
+// control flow with generators
+// while(true) loop will run infinitely and bad code
+// to use this for our adv, use seq
+
+
+function* evens(){
+  let count=0;
+  while(true) {
+    count +=2;
+    yield count;
+}}
+let sequence = evens();
+console.log(sequence.next().value);  //1
+console.log(sequence.next().value);  //2
+console.log(sequence.next().value);  //3
+
+// use reset
+
+function* evens(){
+  let count=0;
+  while(true) {
+    count +=2;
+    let reset = yield count;
+    if (reset) {
+    count =0;
+    }
+}}
+let sequence = evens();
+console.log(sequence.next().value);  //2
+console.log(sequence.next().value);  //4
+console.log(sequence.next().value);  //6
+console.log(sequence.next(true).value);  //2
+console.log(sequence.next().value);  //4
+
+
+-----------------------------------------------------
+//iteration from scratch
+
+const arrayItrtn = (array) => {
+  let index = 0;
+
+  return { 
+    next: () => {
+      if (index < array.length){
+        let next = array[index];
+        index +=1;
+        return next;
+      }}}}
+let it = arrayItrtn([1,2,3]);
+console.log(it.next());  //1
+console.log(it.next());  //2
+console.log(it.next());  //3
+
+// in ES6 with generators we have a powerful alternative
+// arguments keyword that checks for whatever we pass
+
+
+function* arrayItrtn(){
+   yield arguments;
+ }
+var it = arrayItrtn(1,2,3);
+console.log(it.next().value);  //[1,2,3]
+
+// we can use enhanced for loop as well
+
+function* arrayItrtn(){
+  for (let arg of arguments){
+   yield arg;
+ }
+}
+var it = arrayItrtn(1,2,3);
+console.log(it.next().value);  //1
+console.log(it.next().value);  //2
+console.log(it.next().value);  //3
+
+// if we use yeild more than 1 time in a row
+
+function* arrayItrtn(){
+  yield* arguments;
+}
+var it = arrayItrtn(1,2,3);
+console.log(it.next().value);  //1
+console.log(it.next().value);  //2
+console.log(it.next().value);  //3
