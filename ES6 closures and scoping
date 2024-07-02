@@ -1,0 +1,27 @@
+// closure are functions that remember the env they were created in and can ref indpdnt variable in that env
+//closures enable creation of function factories
+// function factories: we can create funcs that return other functions to make adaptable methods
+
+
+let call=() => {
+  let secret = 'ES6 Rocks';   //only within the closure scope
+  let reveal = () => {
+    console.log(secret);
+  }
+  reveal();
+}
+call();                 // but accessing it in globalscope
+
+
+---------------------------------------
+// lexical scoping : track of the loc of var so that it can be accesssed
+
+let call=() => {
+  let secret = 'ES6 Rocks';   
+  let reveal = () => {
+    console.log(secret);
+  }
+  return reveal;
+}
+let unveil = call();
+unveil();  // closure retains a ref to the LS env it was created in and allows us to access data within scopes of functions 
