@@ -1,0 +1,43 @@
+//ES6 SET ds
+// set: allows to store unique values, similar to array no duplicates
+// better than Arrays as no duplicates.
+
+let a = new Set();
+a.add(5);
+a.add(43);
+a.add("Woohoo");
+a.add({x:50, y:200});
+console.log(a);  //prints all
+console.log(a.size);  //4 as we added 4 elements to our set
+console.log(a.has(5));  //true
+--------------------------------------
+
+//convert entire array to set
+//pass an array to a set constructor
+
+let numbers = [5,6,7,8,9];
+let numSet = new Set(numbers);
+console.log(numSet); // set {5,6,7,8,9}
+
+-------------------------------------------
+//print set elements individually
+//values methods for traversal
+//enhanced for loop
+
+let numbers = [5,6,7,8,9];
+let numSet = new Set(numbers);
+
+for (let element of numSet.values()){
+  console.log(element);  //5 6 7 8 9
+}
+
+---------------------------------------------
+//string , which char appear in the string
+//example
+
+let chars = 'jhbdcudrvkdnfosijdcosdc';
+let chars_arr= chars.split("");   //split into an array
+let chars_set= new Set(chars_arr);
+  console.log(chars_set);  // Set {"j","h"....}
+
+ 
